@@ -1,9 +1,15 @@
-一、防火墙(都执行)
+## 一、防火墙(都执行)
+
+~~~shell
 # 1.进入 root
 $[user] su root
 # 2.永久关闭防火墙
 $[root] systemctl disable firewalld
-二、JDK(都执行)
+~~~
+
+## 二、JDK(都执行)
+
+~~~shell
 # 1.卸载自带JDK
 $[root] rpm -qa | grep java
 $[root] rpm -e --nodeps ...
@@ -24,7 +30,11 @@ $[root] source /etc/profile
 
 # 6.校验
 $[root] java -version
-三、设置主机 配置集群(都执行)
+~~~
+
+## 三、设置主机 配置集群(都执行)
+
+~~~  shell
 # 1.设置主机名称
 $[root] hostnamectl set-hostname [master/slave1/slave2]
 
@@ -55,7 +65,11 @@ $ [root] vim /etc/ssh/sshd_config
 # 8.验证   ***普通用户下 普通用户下 普通用户下 普通用户下 普通用户下 普通用户下 普通用户下
 $[zhang] ssh slave1
 $[zhang] ssh slave2
-四、安装 配置Hadoop (Master下执行！！！)
+~~~
+
+## 四、安装 配置Hadoop  (Master下执行！！！)
+
+~~~ shell
 # 1.解压Hadoop
 $[root] tar -zxvf /opt/software/hadoop-2.7.1.tar.gz -C /usr/local/src/
 
@@ -183,7 +197,11 @@ $[root] vim /etc/profile
 $[root] chown -R hadoop:hadoop /usr/local/src/
 
 $[root] source /etc/profile
-hadoop 集群运行
+~~~
+
+## hadoop 集群运行
+
+~~~ shell
 $ [master root] su – zhang
 $ [master zhang] cd /usr/local/src/hadoop/
 # 初始化
@@ -218,7 +236,11 @@ $ [master zhang] hdfs dfsadmin -report
 http://master:50070
 http://master:50090
 http://master:8088
-# Hive(Master)
+~~~
+
+# # Hive(Master)
+
+~~~ shell
 # 1.解压 HIVE
 $[root] tar -zxvf /opt/software/apache-hive-2.0.0-bin.tar.gz -C /usr/local/src
 
@@ -306,3 +328,5 @@ $[zhang] schematool -initSchema -dbType mysql
 
 # 17.启动Hive！！！！！！！！！！
 $[zhang] hive
+~~~
+
